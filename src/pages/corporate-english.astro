@@ -1,0 +1,368 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ExpandableModuleCard from '../components/ExpandableModuleCard.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { corporateModules, globalFaqs, trainingFormats } from '../data/siteContent';
+
+const corporateFaqs = globalFaqs.filter(f => f.category === 'corporate' || f.category === 'general').slice(0, 5);
+
+const corporateAudiences = [
+  {
+    title: "Corporate Employees",
+    description: "Develop communication skills for workplace collaboration, updates, meetings and everyday professional interactions."
+  },
+  {
+    title: "Managers & Team Leaders",
+    description: "Practise meeting facilitation, clear delegation, constructive feedback and team communication."
+  },
+  {
+    title: "Sales & Client-Facing Professionals",
+    description: "Develop language for client discussions, understanding requirements, presenting information and handling professional conversations."
+  },
+  {
+    title: "HR & Administrative Professionals",
+    description: "Strengthen professional writing, employee communication, coordination and workplace correspondence."
+  },
+  {
+    title: "Business Owners & Entrepreneurs",
+    description: "Develop clearer professional communication for presenting ideas, discussing requirements and engaging with clients."
+  },
+  {
+    title: "Organisations & L&D Teams",
+    description: "Explore role-focused communication development aligned with team responsibilities and learning priorities."
+  }
+];
+
+const orgLearningAreas = [
+  "Business communication workshops",
+  "Professional email writing",
+  "Meetings and presentations",
+  "Customer communication",
+  "Communication development for managers",
+  "Role-specific professional English"
+];
+---
+
+<Layout
+  title="Corporate English & Workplace Communication | The English Practice"
+  description="Role-focused Business English and workplace communication training for companies, managers, and working professionals led by Chriselle Dmello."
+  currentPath="/corporate-english"
+>
+  
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-[#F7F4EE] via-[#FAF8F5] to-white pt-14 pb-20 border-b border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#153D40]/10 text-[#153D40] text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+          Corporate English & Professional Communication
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#153D40] font-bold tracking-tight leading-tight mb-4">
+          Your expertise deserves to be heard.
+        </h1>
+
+        <p class="font-serif text-xl sm:text-2xl text-[#C9916C] mb-6">
+          Communicate with clarity. Contribute with confidence. Grow professionally.
+        </p>
+
+        <div class="space-y-4 text-base sm:text-lg text-[#667378] leading-relaxed mb-8">
+          <p>
+            Being good at your work and communicating that work effectively are two different skills.
+          </p>
+          <p>
+            Whether you're presenting an idea, writing an important email, participating in a meeting or speaking with a client, the way you communicate shapes how your message is understood.
+          </p>
+          <p class="font-medium text-[#212A32]">
+            The English Practice focuses on practical Business English and workplace communication skills relevant to professional responsibilities.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm font-semibold text-white bg-[#153D40] hover:bg-[#1E5155] active:bg-[#0E292B] shadow-sm hover:shadow transition-all"
+          >
+            <span>Discuss Corporate Training</span>
+            <svg class="ml-2 w-4 h-4 text-[#E2B596]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a
+            href="#corporate-modules"
+            class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm font-semibold text-[#153D40] bg-white hover:bg-[#FAF8F5] border border-[#E2DDD2] shadow-2xs transition-all"
+          >
+            <span>Explore Programmes</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-6">
+          Communication that works beyond the classroom.
+        </h2>
+        <div class="space-y-4 text-base sm:text-lg text-[#667378] leading-relaxed">
+          <p>
+            Workplace communication requires more than correct grammar and an extensive vocabulary.
+          </p>
+          <p>
+            It requires the ability to explain ideas, ask relevant questions, contribute to discussions, communicate professionally and adapt language to different situations.
+          </p>
+          <p class="font-medium text-[#212A32]">
+            Our English for Specific Purposes approach connects communication practice to realistic professional responsibilities.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Pillars -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E2DDD2]">
+          <span class="w-10 h-10 rounded-lg bg-[#153D40] text-white flex items-center justify-center font-serif font-bold text-sm mb-4">
+            01
+          </span>
+          <h3 class="font-serif text-xl font-bold text-[#153D40] mb-2">Clarity</h3>
+          <p class="text-xs sm:text-sm text-[#667378] leading-relaxed">
+            Eliminating ambiguity and structuring arguments so colleagues and clients grasp your core point immediately.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E2DDD2]">
+          <span class="w-10 h-10 rounded-lg bg-[#C9916C] text-white flex items-center justify-center font-serif font-bold text-sm mb-4">
+            02
+          </span>
+          <h3 class="font-serif text-xl font-bold text-[#153D40] mb-2">Confidence</h3>
+          <p class="text-xs sm:text-sm text-[#667378] leading-relaxed">
+            Speaking up in cross-functional forums, executive presentations, and unpredictable client meetings without hesitation.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E2DDD2]">
+          <span class="w-10 h-10 rounded-lg bg-[#153D40] text-white flex items-center justify-center font-serif font-bold text-sm mb-4">
+            03
+          </span>
+          <h3 class="font-serif text-xl font-bold text-[#153D40] mb-2">Professionalism</h3>
+          <p class="text-xs sm:text-sm text-[#667378] leading-relaxed">
+            Mastering tone, diplomatic pushback, executive summaries, and formal business correspondence etiquette.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E2DDD2]">
+          <span class="w-10 h-10 rounded-lg bg-[#C9916C] text-white flex items-center justify-center font-serif font-bold text-sm mb-4">
+            04
+          </span>
+          <h3 class="font-serif text-xl font-bold text-[#153D40] mb-2">Practical Application</h3>
+          <p class="text-xs sm:text-sm text-[#667378] leading-relaxed">
+            Practicing through authentic scenarios like project status briefings, negotiation simulations, and team retrospectives.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHO CAN BENEFIT? (6 Cards) -->
+  <section class="py-20 bg-[#FAF8F5] border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          Who can benefit?
+        </h2>
+        <p class="text-base text-[#667378]">
+          From individual contributors seeking career progression to cross-functional teams striving for smoother alignment.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {corporateAudiences.map((aud) => (
+          <div class="p-6 rounded-xl bg-white border border-[#E2DDD2] hover:border-[#153D40] transition-colors">
+            <h3 class="font-serif text-lg font-bold text-[#153D40] mb-2">
+              {aud.title}
+            </h3>
+            <p class="text-sm text-[#667378] leading-relaxed">
+              {aud.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIX CORPORATE TRAINING MODULES -->
+  <section id="corporate-modules" class="py-20 bg-white border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#153D40]/5 border border-[#153D40]/15 text-[#153D40] text-xs font-semibold uppercase tracking-wider mb-4">
+          <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+          Core Corporate Syllabus
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          Corporate Communication Modules
+        </h2>
+        <p class="text-base sm:text-lg text-[#667378]">
+          Targeted curriculum modules designed around high-impact workplace communication needs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {corporateModules.map((mod) => (
+          <ExpandableModuleCard
+            id={mod.id}
+            number={mod.number}
+            title={mod.title}
+            headline={mod.headline}
+            points={mod.topics}
+            pointsLabel="Key Topics Covered"
+            practicalLabel="Practical Examples & Scenarios"
+            practicalItems={mod.practicalExamples}
+          />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THE ESP ADVANTAGE COMPARISON -->
+  <section class="py-20 bg-[#FAF8F5] border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          The ESP Advantage: One language, different professional needs.
+        </h2>
+        <p class="text-base sm:text-lg text-[#667378]">
+          A salesperson, school administrator, project manager and team leader may all use English at work, but their communication needs are not identical. English for Specific Purposes recognises these differences and focuses learning on relevant professional communication tasks.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white p-6 rounded-xl border border-[#E2DDD2]">
+          <h3 class="font-serif text-lg font-bold text-[#153D40] mb-2">Technical / Project Leads</h3>
+          <p class="text-xs text-[#667378] leading-relaxed mb-3">Translating complex technical data into plain-language business insights for non-technical leadership and external stakeholders.</p>
+          <span class="text-[11px] font-mono text-[#C9916C]">Focus: Conciseness & Precision</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-[#E2DDD2]">
+          <h3 class="font-serif text-lg font-bold text-[#153D40] mb-2">Client Relationship Managers</h3>
+          <p class="text-xs text-[#667378] leading-relaxed mb-3">Conducting discovery calls, managing client friction diplomatically, negotiating scope, and sending polished post-meeting recaps.</p>
+          <span class="text-[11px] font-mono text-[#C9916C]">Focus: Tact & Persuasion</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-[#E2DDD2]">
+          <h3 class="font-serif text-lg font-bold text-[#153D40] mb-2">People Managers & HR</h3>
+          <p class="text-xs text-[#667378] leading-relaxed mb-3">Conducting empathetic 1-on-1 performance reviews, drafting formal organizational announcements, and resolving internal misalignments.</p>
+          <span class="text-[11px] font-mono text-[#C9916C]">Focus: Constructive Feedback & Empathy</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ORGANISATIONS VS INDIVIDUALS -->
+  <section class="py-20 bg-white border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        
+        <!-- Corporate Training for Organisations -->
+        <div class="bg-[#FAF8F5] rounded-2xl border border-[#E2DDD2] p-8 sm:p-10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[#153D40] text-white">
+              For Companies & L&D Teams
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-[#153D40]">
+              Develop communication skills across your team.
+            </h3>
+            <p class="text-sm sm:text-base text-[#667378] leading-relaxed">
+              Different departments face different communication challenges. An HR team may need clearer professional correspondence, while managers may need more effective meeting and feedback skills.
+            </p>
+            <p class="text-sm text-[#212A32] font-medium">
+              Potential organisational learning areas:
+            </p>
+            <div class="flex flex-wrap gap-2 pt-1">
+              {orgLearningAreas.map((area) => (
+                <span class="px-2.5 py-1 rounded-md bg-white border border-[#E2DDD2] text-xs font-medium text-[#153D40]">
+                  {area}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-[#E2DDD2]">
+            <a
+              href="/contact"
+              class="inline-flex items-center text-sm font-semibold text-[#153D40] hover:text-[#C9916C] transition-colors"
+            >
+              <span>Request a Corporate Training Proposal</span>
+              <span class="ml-1.5 text-lg">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Individual Professional Training -->
+        <div class="bg-[#FAF8F5] rounded-2xl border border-[#E2DDD2] p-8 sm:p-10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[#C9916C] text-white">
+              Individual Coaching
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-[#153D40]">
+              Invest in the way you communicate.
+            </h3>
+            <p class="text-sm sm:text-base text-[#667378] leading-relaxed">
+              Professional development extends beyond technical knowledge. Focused English practice can support clearer presentations, stronger workplace discussions and more effective everyday communication.
+            </p>
+            <p class="text-sm sm:text-base text-[#667378] leading-relaxed">
+              One-to-one sessions offer an executive safe space to review upcoming presentations, refine actual emails, rehearse high-stakes meetings, and build lasting conversational clarity.
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-[#E2DDD2]">
+            <a
+              href="/contact"
+              class="inline-flex items-center text-sm font-semibold text-[#153D40] hover:text-[#C9916C] transition-colors"
+            >
+              <span>Enquire About Individual Training</span>
+              <span class="ml-1.5 text-lg">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CORPORATE FAQ -->
+  <section class="py-20 bg-[#FAF8F5] border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <h2 class="font-serif text-3xl font-bold text-[#153D40] mb-4">
+          Corporate Training FAQs
+        </h2>
+        <p class="text-sm sm:text-base text-[#667378]">
+          Answers to common questions regarding corporate cohorts, formats, and tailored modules.
+        </p>
+      </div>
+
+      <FaqAccordion faqs={corporateFaqs} idPrefix="corp-faq" />
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <CtaSection
+    headline="Strong ideas deserve clear communication."
+    description="Discuss corporate training requirements for your organisation or individual professional goals."
+    primaryCtaText="Discuss Your Training Needs"
+    primaryCtaHref="/contact"
+  />
+
+</Layout>

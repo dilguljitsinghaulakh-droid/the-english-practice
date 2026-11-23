@@ -1,0 +1,209 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ApproachTimeline from '../components/ApproachTimeline.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { trainingFormats } from '../data/siteContent';
+---
+
+<Layout
+  title="Our Approach to Professional English Training | The English Practice"
+  description="Explore our 4-step learning pathway: Discover, Design, Practise, and Review. Purpose-built English for Specific Purposes led by Chriselle Dmello."
+  currentPath="/our-approach"
+>
+  
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-[#F7F4EE] via-[#FAF8F5] to-white pt-14 pb-20 border-b border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#153D40]/10 text-[#153D40] text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+          Learning Methodology
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#153D40] font-bold tracking-tight leading-tight mb-6">
+          Learning with a clear purpose.
+        </h1>
+
+        <div class="space-y-4 text-base sm:text-lg text-[#667378] leading-relaxed mb-8">
+          <p>
+            Every learner brings different experiences, responsibilities and communication goals. A practical English training programme should begin by understanding those needs.
+          </p>
+          <p class="font-medium text-[#212A32]">
+            At The English Practice, our proposed learning approach brings together purposeful language development, realistic communication practice and constructive feedback.
+          </p>
+        </div>
+
+        <div>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm font-semibold text-white bg-[#153D40] hover:bg-[#1E5155] active:bg-[#0E292B] shadow-sm hover:shadow transition-all"
+          >
+            <span>Request a Training Consultation</span>
+            <svg class="ml-2 w-4 h-4 text-[#E2B596]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FOUR-STEP PROCESS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-14">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          The Four-Step Learning Pathway
+        </h2>
+        <p class="text-base text-[#667378] leading-relaxed">
+          Our proposed learning methodology avoids one-size-fits-all textbooks. Each phase is calibrated to real communication responsibilities.
+        </p>
+      </div>
+
+      <ApproachTimeline showCta={false} />
+
+    </div>
+  </section>
+
+  <!-- WHY CONTEXT MATTERS: INTERACTIVE TEACHER VS CORPORATE COMPARISON -->
+  <section class="py-20 bg-[#FAF8F5] border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#153D40]/5 border border-[#153D40]/15 text-[#153D40] text-xs font-semibold uppercase tracking-wider mb-4">
+          <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+          Contextual ESP
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          Why context matters in language learning.
+        </h2>
+        <p class="text-base sm:text-lg text-[#667378]">
+          Teaching English to a classroom educator differs completely from developing communication for a corporate project manager. Examine how the same language skill shifts based on professional context:
+        </p>
+      </div>
+
+      <!-- Contextual Contrast Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Context A: Educator -->
+        <div class="bg-white rounded-2xl border border-[#E2DDD2] p-8 shadow-2xs">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#E2DDD2]">
+            <span class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[#153D40]/10 text-[#153D40]">
+              In the School & Classroom
+            </span>
+            <span class="text-xs font-mono text-[#667378]">Educator Context</span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-xs uppercase tracking-wider font-semibold text-[#C9916C] mb-1">Communication Goal</h4>
+              <p class="text-sm font-medium text-[#212A32]">Explaining a complex conceptual topic with clarity and student engagement.</p>
+            </div>
+
+            <div>
+              <h4 class="text-xs uppercase tracking-wider font-semibold text-[#153D40] mb-1">Key Language Dimension</h4>
+              <p class="text-xs text-[#667378] leading-relaxed">
+                Pacing, instructional scaffolding, concept-checking questions (CCQs), age-appropriate vocabulary, and active listening to student doubts.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-[#FAF8F5] border border-[#E2DDD2] text-xs text-[#212A32] italic">
+              "Let us review the second step together. Who can describe what happened before the chemical reaction began?"
+            </div>
+          </div>
+        </div>
+
+        <!-- Context B: Corporate -->
+        <div class="bg-white rounded-2xl border border-[#E2DDD2] p-8 shadow-2xs">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#E2DDD2]">
+            <span class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[#C9916C]/15 text-[#B37A55]">
+              In the Workplace & Boardroom
+            </span>
+            <span class="text-xs font-mono text-[#667378]">Corporate Context</span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-xs uppercase tracking-wider font-semibold text-[#C9916C] mb-1">Communication Goal</h4>
+              <p class="text-sm font-medium text-[#212A32]">Presenting a quarterly project deliverable and resource risk to senior leadership.</p>
+            </div>
+
+            <div>
+              <h4 class="text-xs uppercase tracking-wider font-semibold text-[#153D40] mb-1">Key Language Dimension</h4>
+              <p class="text-xs text-[#667378] leading-relaxed">
+                Conciseness, signposting, data-to-insight transitions, diplomatic risk escalation, and managing executive Q&A.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-[#FAF8F5] border border-[#E2DDD2] text-xs text-[#212A32] italic">
+              "We have achieved 92% of the sprint deliverables; however, addressing the API latency will require reallocating two engineering days."
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONFIRMED LEARNING FORMATS -->
+  <section class="py-20 bg-white border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          Flexible Learning Arrangements
+        </h2>
+        <p class="text-base sm:text-lg text-[#667378]">
+          We structure programmes across three confirmed delivery formats to suit individual goals and group commitments.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {trainingFormats.map((fmt) => (
+          <div class="bg-[#FAF8F5] rounded-2xl border border-[#E2DDD2] p-8 flex flex-col justify-between hover:border-[#153D40] transition-all">
+            <div class="space-y-4">
+              <span class="inline-block px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider bg-white border border-[#E2DDD2] text-[#153D40]">
+                {fmt.title}
+              </span>
+              <h3 class="font-serif text-2xl font-bold text-[#153D40]">
+                {fmt.tagline}
+              </h3>
+              <p class="text-sm text-[#667378] leading-relaxed">
+                {fmt.description}
+              </p>
+
+              <div class="pt-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-[#153D40] block mb-2">Key Highlights:</span>
+                <ul class="space-y-1.5 text-xs text-[#212A32]">
+                  {fmt.features.map((feat) => (
+                    <li class="flex items-start gap-1.5">
+                      <span class="text-[#C9916C] font-bold">›</span>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-[#E2DDD2] text-xs">
+              <strong class="text-[#153D40] block mb-1">Recommended for:</strong>
+              <p class="text-[#667378]">{fmt.idealFor}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <CtaSection
+    headline="Let's discuss your learning goals."
+    description="Connect with us to identify communication priorities for yourself or your team and structure a purpose-built learning plan."
+    primaryCtaText="Request a Training Consultation"
+    primaryCtaHref="/contact"
+  />
+
+</Layout>

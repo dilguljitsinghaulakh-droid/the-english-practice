@@ -1,0 +1,136 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { businessConfig } from '../data/businessConfig';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  currentPath?: string;
+  ogType?: string;
+}
+
+const {
+  title = "The English Practice | Professional English Communication & Language Development",
+  description = "Specialist English for Specific Purposes (ESP) training for educators, schools, and corporate professionals led by Chriselle Dmello, Master's in English Language Teaching.",
+  keywords = [
+    "English for Specific Purposes",
+    "English communication training for teachers",
+    "English for educators",
+    "Corporate English training",
+    "Business English training",
+    "Workplace communication training",
+    "Professional English communication",
+    "English-medium teacher development",
+    "Business communication skills",
+    "Online professional English training"
+  ],
+  currentPath = Astro.url.pathname,
+  ogType = "website"
+} = Astro.props;
+
+const siteUrl = businessConfig.websiteUrl || "https://theenglishpractice.com";
+const canonicalURL = new URL(currentPath, siteUrl).toString();
+
+// Structured data using only verified facts
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": businessConfig.businessName,
+  "description": businessConfig.brandDescriptor,
+  "slogan": businessConfig.tagline,
+  "founder": {
+    "@type": "Person",
+    "name": businessConfig.trainerName,
+    "jobTitle": businessConfig.trainerTitle,
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "name": businessConfig.trainerQualification
+    }
+  },
+  "knowsAbout": [
+    "English for Specific Purposes",
+    "Teacher English Communication Development",
+    "Corporate English & Workplace Communication",
+    "Professional English Speaking & Writing"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Course",
+        "name": "English Communication Training for Teachers and Educators",
+        "description": "Practical English communication development for teachers and educators focusing on classroom instruction, student engagement, and parent-teacher communication."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Course",
+        "name": "Corporate English and Workplace Communication Training",
+        "description": "Role-focused Business English training for corporate professionals, managers, and teams."
+      }
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en" class="h-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <meta name="author" content={businessConfig.trainerName} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={businessConfig.businessName} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Google Fonts: Fraunces & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body class="min-h-full flex flex-col bg-[#F7F4EE] text-[#212A32] font-sans antialiased selection:bg-[#153D40] selection:text-[#F7F4EE]">
+    <!-- Accessibility Skip Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#153D40] text-white px-4 py-2 rounded shadow-lg border border-[#C9916C] outline-none"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Header Navigation -->
+    <Header currentPath={currentPath} />
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+  </body>
+</html>

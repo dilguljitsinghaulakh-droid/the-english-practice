@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-teal: #153D40;
+  --color-brand-teal-dark: #0E292B;
+  --color-brand-teal-light: #1E5155;
+  --color-brand-teal-subtle: #EBF1F1;
+  --color-brand-ivory: #F7F4EE;
+  --color-brand-ivory-warm: #FAF8F5;
+  --color-brand-ivory-dark: #ECE7DC;
+  --color-brand-ink: #212A32;
+  --color-brand-ink-light: #34404B;
+  --color-brand-copper: #C9916C;
+  --color-brand-copper-dark: #B37A55;
+  --color-brand-copper-light: #E2B596;
+  --color-brand-copper-subtle: #F9F3EE;
+  --color-brand-muted: #667378;
+  --color-brand-border: #E2DDD2;
+  --color-brand-border-light: #EFECE6;
+
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: var(--color-brand-ink);
+    background-color: var(--color-brand-ivory);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: #153D40;
+    color: #F7F4EE;
+  }
+
+  :focus-visible {
+    outline: 2px solid #C9916C;
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

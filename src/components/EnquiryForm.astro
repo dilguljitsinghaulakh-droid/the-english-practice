@@ -1,0 +1,302 @@
+---
+import { businessConfig } from '../data/businessConfig';
+
+const categories = [
+  "School / Institution Training",
+  "Corporate Team Training",
+  "Individual Teacher Training",
+  "Individual Professional Training",
+  "General Enquiry"
+];
+
+const formats = [
+  "Online Training",
+  "One-to-One Training",
+  "Group Training",
+  "Need Guidance on Format"
+];
+---
+
+<div class="bg-white rounded-2xl border border-[#E2DDD2] shadow-sm p-6 sm:p-10">
+  
+  <!-- Transparent Launch Status Banner -->
+  <div class="mb-8 p-4 rounded-xl bg-[#FAF8F5] border border-[#E2DDD2] flex items-start gap-3.5">
+    <div class="w-8 h-8 rounded-full bg-[#153D40]/10 text-[#153D40] flex items-center justify-center shrink-0 mt-0.5">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+    <div class="text-xs sm:text-sm text-[#212A32] leading-relaxed">
+      <strong class="font-semibold text-[#153D40] block mb-0.5">Transparent Enquiry Notice</strong>
+      Official email and WhatsApp endpoints are currently being set up for The English Practice. Use the form below to compile a complete, structured training brief that you can copy to your clipboard for immediate reference.
+    </div>
+  </div>
+
+  <form id="enquiry-form" class="space-y-6" novalidate>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      
+      <!-- Full Name -->
+      <div>
+        <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-2">
+          Full Name <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          required
+          placeholder="e.g. Sarah Jenkins or Rajesh Sharma"
+          class="w-full px-4 py-3 rounded-lg border border-[#E2DDD2] bg-[#FAF8F5] text-[#212A32] placeholder-[#667378]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#153D40] focus:border-transparent transition-all text-sm"
+        />
+        <p class="hidden text-xs text-red-600 mt-1" id="error-fullName">Please enter your full name.</p>
+      </div>
+
+      <!-- Email Address -->
+      <div>
+        <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-2">
+          Email Address <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="e.g. name@organisation.com"
+          class="w-full px-4 py-3 rounded-lg border border-[#E2DDD2] bg-[#FAF8F5] text-[#212A32] placeholder-[#667378]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#153D40] focus:border-transparent transition-all text-sm"
+        />
+        <p class="hidden text-xs text-red-600 mt-1" id="error-email">Please enter a valid email address.</p>
+      </div>
+
+      <!-- Phone / WhatsApp -->
+      <div>
+        <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-2">
+          Phone / WhatsApp <span class="text-xs text-[#667378] font-normal lowercase">(optional)</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="e.g. +91 98765 43210"
+          class="w-full px-4 py-3 rounded-lg border border-[#E2DDD2] bg-[#FAF8F5] text-[#212A32] placeholder-[#667378]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#153D40] focus:border-transparent transition-all text-sm"
+        />
+      </div>
+
+      <!-- Enquiry Category -->
+      <div>
+        <label for="category" class="block text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-2">
+          Enquiry Category <span class="text-red-500">*</span>
+        </label>
+        <select
+          id="category"
+          name="category"
+          required
+          class="w-full px-4 py-3 rounded-lg border border-[#E2DDD2] bg-[#FAF8F5] text-[#212A32] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#153D40] focus:border-transparent transition-all text-sm"
+        >
+          <option value="" disabled selected>Select an enquiry type</option>
+          {categories.map((cat) => (
+            <option value={cat}>{cat}</option>
+          ))}
+        </select>
+        <p class="hidden text-xs text-red-600 mt-1" id="error-category">Please select a category.</p>
+      </div>
+
+      <!-- Organisation / Institution Name -->
+      <div>
+        <label for="organisation" class="block text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-2">
+          Organisation / School Name <span class="text-xs text-[#667378] font-normal lowercase">(optional)</span>
+        </label>
+        <input
+          type="text"
+          id="organisation"
+          name="organisation"
+          placeholder="e.g. Green Valley International School"
+          class="w-full px-4 py-3 rounded-lg border border-[#E2DDD2] bg-[#FAF8F5] text-[#212A32] placeholder-[#667378]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#153D40] focus:border-transparent transition-all text-sm"
+        />
+      </div>
+
+      <!-- Number of Participants -->
+      <div>
+        <label for="participants" class="block text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-2">
+          Estimated Participants <span class="text-xs text-[#667378] font-normal lowercase">(optional)</span>
+        </label>
+        <input
+          type="text"
+          id="participants"
+          name="participants"
+          placeholder="e.g. 1 (Individual) or 15–20 teachers"
+          class="w-full px-4 py-3 rounded-lg border border-[#E2DDD2] bg-[#FAF8F5] text-[#212A32] placeholder-[#667378]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#153D40] focus:border-transparent transition-all text-sm"
+        />
+      </div>
+
+    </div>
+
+    <!-- Preferred Training Format -->
+    <div>
+      <label class="block text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-3">
+        Preferred Training Format <span class="text-red-500">*</span>
+      </label>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {formats.map((fmt, idx) => (
+          <label class="format-option-label relative flex items-center p-3 rounded-lg border border-[#E2DDD2] bg-[#FAF8F5] hover:border-[#C9916C] cursor-pointer transition-colors text-sm">
+            <input
+              type="radio"
+              name="trainingFormat"
+              value={fmt}
+              required
+              checked={idx === 0}
+              class="w-4 h-4 text-[#153D40] focus:ring-[#C9916C] border-[#E2DDD2]"
+            />
+            <span class="ml-2.5 text-xs sm:text-sm font-medium text-[#212A32]">{fmt}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <!-- Learning Goals / Training Requirements -->
+    <div>
+      <label for="goals" class="block text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-2">
+        Learning Goals & Training Requirements <span class="text-red-500">*</span>
+      </label>
+      <textarea
+        id="goals"
+        name="goals"
+        rows="4"
+        required
+        placeholder="Briefly describe your goals, communication challenges, upcoming presentations, classroom requirements, or team objectives..."
+        class="w-full px-4 py-3 rounded-lg border border-[#E2DDD2] bg-[#FAF8F5] text-[#212A32] placeholder-[#667378]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#153D40] focus:border-transparent transition-all text-sm"
+      ></textarea>
+      <p class="hidden text-xs text-red-600 mt-1" id="error-goals">Please share your learning goals or requirements.</p>
+    </div>
+
+    <!-- Submit / Prepare Button -->
+    <div class="pt-2">
+      <button
+        type="submit"
+        id="submit-enquiry-btn"
+        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-lg text-sm font-semibold text-white bg-[#153D40] hover:bg-[#1E5155] active:bg-[#0E292B] shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
+      >
+        <span>Prepare & Copy Enquiry Summary</span>
+        <svg class="ml-2 w-4 h-4 text-[#E2B596]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      </button>
+    </div>
+  </form>
+
+  <!-- Output / Feedback Modal/Card -->
+  <div id="enquiry-output-card" class="hidden mt-8 p-6 rounded-xl bg-[#FAF8F5] border-2 border-[#153D40] transition-all">
+    <div class="flex items-start justify-between gap-4 pb-4 border-b border-[#E2DDD2]">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">
+          ✓
+        </div>
+        <div>
+          <h4 class="font-serif font-bold text-[#153D40] text-base">Enquiry Summary Formatted & Copied</h4>
+          <p class="text-xs text-[#667378]">Copied to your clipboard. No data was sent across the internet.</p>
+        </div>
+      </div>
+      <button
+        type="button"
+        id="close-output-btn"
+        class="text-xs text-[#667378] hover:text-[#153D40] font-medium underline"
+      >
+        Dismiss
+      </button>
+    </div>
+
+    <div class="mt-4">
+      <p class="text-xs text-[#667378] mb-2 font-medium">Text representation of your training enquiry:</p>
+      <pre id="enquiry-text-preview" class="p-4 rounded-lg bg-white border border-[#E2DDD2] font-mono text-xs text-[#212A32] whitespace-pre-wrap overflow-x-auto leading-relaxed"></pre>
+    </div>
+
+    <!-- Future mailto activation slot -->
+    <div id="mailto-fallback-container" class="mt-4 pt-4 border-t border-[#E2DDD2] text-xs text-[#667378]">
+      <span class="font-medium text-[#153D40]">Next steps:</span> Keep this summary handy to share during your initial discussion or email once official direct channels are active.
+    </div>
+  </div>
+
+</div>
+
+<script is:inline define:vars={{ businessConfig }}>
+  (function () {
+    const form = document.getElementById('enquiry-form');
+    const outputCard = document.getElementById('enquiry-output-card');
+    const previewEl = document.getElementById('enquiry-text-preview');
+    const closeBtn = document.getElementById('close-output-btn');
+
+    if (!form || !outputCard || !previewEl) return;
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        outputCard.classList.add('hidden');
+      });
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Reset errors
+      document.querySelectorAll('[id^="error-"]').forEach(el => el.classList.add('hidden'));
+
+      const fullName = (document.getElementById('fullName')).value.trim();
+      const email = (document.getElementById('email')).value.trim();
+      const phone = (document.getElementById('phone')).value.trim();
+      const category = (document.getElementById('category')).value;
+      const organisation = (document.getElementById('organisation')).value.trim();
+      const participants = (document.getElementById('participants')).value.trim();
+      const goals = (document.getElementById('goals')).value.trim();
+
+      const selectedFormatInput = document.querySelector('input[name="trainingFormat"]:checked');
+      const trainingFormat = selectedFormatInput ? selectedFormatInput.value : 'Not specified';
+
+      let hasError = false;
+
+      if (!fullName) {
+        document.getElementById('error-fullName')?.classList.remove('hidden');
+        hasError = true;
+      }
+      if (!email || !email.includes('@')) {
+        document.getElementById('error-email')?.classList.remove('hidden');
+        hasError = true;
+      }
+      if (!category) {
+        document.getElementById('error-category')?.classList.remove('hidden');
+        hasError = true;
+      }
+      if (!goals) {
+        document.getElementById('error-goals')?.classList.remove('hidden');
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      const enquiryText = `TRAINING ENQUIRY — THE ENGLISH PRACTICE
+=======================================
+Name: ${fullName}
+Email: ${email}
+Phone / WhatsApp: ${phone || 'Not provided'}
+Enquiry Category: ${category}
+Organisation / School: ${organisation || 'Individual'}
+Estimated Participants: ${participants || '1'}
+Preferred Format: ${trainingFormat}
+
+LEARNING GOALS & TRAINING REQUIREMENTS:
+${goals}
+=======================================
+Generated via The English Practice (theenglishpractice.com)
+Trainer: ${businessConfig.trainerName} (${businessConfig.trainerQualification})`;
+
+      // Display preview
+      previewEl.textContent = enquiryText;
+      outputCard.classList.remove('hidden');
+      outputCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Copy to clipboard
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(enquiryText).catch(() => {
+          // Fallback if clipboard permission is denied
+        });
+      }
+    });
+  })();
+</script>

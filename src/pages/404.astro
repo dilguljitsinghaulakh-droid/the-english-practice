@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page Not Found | The English Practice"
+  description="The requested page could not be located on The English Practice website."
+  currentPath="/404"
+>
+  <div class="py-28 px-4 sm:px-6 lg:px-8 text-center max-w-3xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#153D40]/10 text-[#153D40] text-xs font-semibold uppercase tracking-wider mb-6">
+      <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+      404 Error
+    </div>
+
+    <h1 class="font-serif text-4xl sm:text-5xl font-bold text-[#153D40] mb-4">
+      Page Not Found
+    </h1>
+
+    <p class="text-base sm:text-lg text-[#667378] leading-relaxed mb-8">
+      The page you are looking for may have been moved, renamed, or is unavailable. Please return to the homepage or explore our core training programmes below.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="/"
+        class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#153D40] hover:bg-[#1E5155] transition-colors"
+      >
+        <span>Return to Homepage</span>
+      </a>
+      <a
+        href="/english-for-teachers"
+        class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold text-[#153D40] bg-white border border-[#E2DDD2] hover:bg-[#FAF8F5] transition-colors"
+      >
+        <span>For Educators</span>
+      </a>
+      <a
+        href="/corporate-english"
+        class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold text-[#153D40] bg-white border border-[#E2DDD2] hover:bg-[#FAF8F5] transition-colors"
+      >
+        <span>For Corporates</span>
+      </a>
+    </div>
+  </div>
+</Layout>

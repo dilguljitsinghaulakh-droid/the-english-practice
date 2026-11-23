@@ -1,0 +1,153 @@
+---
+interface Props {
+  id: string;
+  number: string;
+  title: string;
+  headline: string;
+  points: string[];
+  pointsLabel?: string;
+  practicalLabel?: string;
+  practicalContent?: string;
+  practicalItems?: string[];
+}
+
+const {
+  id,
+  number,
+  title,
+  headline,
+  points,
+  pointsLabel = "Core Curriculum Focus",
+  practicalLabel = "Practical Application",
+  practicalContent,
+  practicalItems
+} = Astro.props;
+---
+
+<div class="expandable-module-card rounded-2xl border border-[#E2DDD2] bg-white transition-all duration-200 hover:border-[#C9916C] hover:shadow-md overflow-hidden flex flex-col justify-between">
+  <div class="p-6 sm:p-8">
+    
+    <!-- Top badge & number -->
+    <div class="flex items-center justify-between mb-4">
+      <span class="font-mono text-xs font-bold text-[#C9916C] bg-[#FAF8F5] border border-[#E2DDD2] px-2.5 py-1 rounded-md">
+        MODULE {number}
+      </span>
+      <span class="text-xs text-[#667378] uppercase tracking-wider font-medium">Specialist ESP Unit</span>
+    </div>
+
+    <!-- Title & Headline -->
+    <h3 class="font-serif text-2xl font-bold text-[#153D40] mb-2 leading-tight">
+      {title}
+    </h3>
+    <p class="text-sm font-medium text-[#C9916C] mb-4">
+      "{headline}"
+    </p>
+
+    <!-- Key bullet points (always visible 3 points, expandable for rest) -->
+    <div class="space-y-2 mt-4">
+      <span class="text-xs font-semibold text-[#153D40] uppercase tracking-wider block">
+        {pointsLabel}
+      </span>
+      <ul class="space-y-1.5 text-sm text-[#212A32]">
+        {points.slice(0, 3).map((pt) => (
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-[#153D40] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{pt}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Expandable Content Panel -->
+    <div id={`module-panel-${id}`} class="hidden pt-4 mt-4 border-t border-[#E2DDD2] space-y-4">
+      {points.length > 3 && (
+        <ul class="space-y-1.5 text-sm text-[#212A32]">
+          {points.slice(3).map((pt) => (
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-[#153D40] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{pt}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {practicalContent && (
+        <div class="p-3.5 rounded-lg bg-[#FAF8F5] border border-[#E2DDD2] text-xs leading-relaxed text-[#212A32]">
+          <strong class="font-semibold text-[#153D40] block mb-1">{practicalLabel}:</strong>
+          {practicalContent}
+        </div>
+      )}
+
+      {practicalItems && practicalItems.length > 0 && (
+        <div class="p-3.5 rounded-lg bg-[#FAF8F5] border border-[#E2DDD2] text-xs leading-relaxed text-[#212A32]">
+          <strong class="font-semibold text-[#153D40] block mb-2">{practicalLabel}:</strong>
+          <div class="flex flex-wrap gap-1.5">
+            {practicalItems.map((item) => (
+              <span class="inline-block px-2.5 py-1 rounded bg-white border border-[#E2DDD2] text-[11px] font-medium text-[#153D40]">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+
+  </div>
+
+  <!-- Toggle button footer -->
+  <div class="px-6 sm:px-8 py-3.5 bg-[#FAF8F5] border-t border-[#E2DDD2] flex items-center justify-between">
+    <button
+      type="button"
+      class="module-toggle-btn inline-flex items-center text-xs font-semibold text-[#153D40] hover:text-[#C9916C] focus:outline-none transition-colors"
+      aria-expanded="false"
+      aria-controls={`module-panel-${id}`}
+    >
+      <span class="toggle-text">Explore Full Module Details</span>
+      <svg class="toggle-icon ml-1.5 w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+
+    <a
+      href="/contact"
+      class="text-[11px] font-medium text-[#667378] hover:text-[#153D40] transition-colors"
+    >
+      Enquire →
+    </a>
+  </div>
+</div>
+
+<script>
+  function setupModuleToggles() {
+    const buttons = document.querySelectorAll('.module-toggle-btn');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        const panelId = btn.getAttribute('aria-controls');
+        if (!panelId) return;
+        const panel = document.getElementById(panelId);
+        const textSpan = btn.querySelector('.toggle-text');
+        const icon = btn.querySelector('.toggle-icon');
+
+        if (isExpanded) {
+          btn.setAttribute('aria-expanded', 'false');
+          panel?.classList.add('hidden');
+          if (textSpan) textSpan.textContent = 'Explore Full Module Details';
+          icon?.classList.remove('rotate-180');
+        } else {
+          btn.setAttribute('aria-expanded', 'true');
+          panel?.classList.remove('hidden');
+          if (textSpan) textSpan.textContent = 'Hide Details';
+          icon?.classList.add('rotate-180');
+        }
+      });
+    });
+  }
+
+  setupModuleToggles();
+  document.addEventListener('astro:after-swap', setupModuleToggles);
+</script>

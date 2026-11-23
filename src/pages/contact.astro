@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import { globalFaqs } from '../data/siteContent';
+import { businessConfig } from '../data/businessConfig';
+---
+
+<Layout
+  title="Contact The English Practice | Training Enquiries"
+  description="Request a training consultation for educator or corporate English communication programmes. Led by Chriselle Dmello, Master's in English Language Teaching."
+  currentPath="/contact"
+>
+  
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-[#F7F4EE] via-[#FAF8F5] to-white pt-14 pb-16 border-b border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#153D40]/10 text-[#153D40] text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+          Consultation & Enquiries
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#153D40] font-bold tracking-tight leading-tight mb-6">
+          Let's talk about your training needs.
+        </h1>
+
+        <p class="text-base sm:text-lg text-[#667378] leading-relaxed">
+          Whether you're an educator, an individual professional or an organisation planning communication training, tell us about your goals and learning priorities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM SECTION -->
+  <section class="py-16 bg-[#FAF8F5]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Enquiry Form Component -->
+      <EnquiryForm />
+
+      <!-- Transparency & Privacy Statement -->
+      <div class="mt-8 p-6 rounded-xl bg-white border border-[#E2DDD2] text-xs text-[#667378] leading-relaxed space-y-2">
+        <h3 class="font-serif font-bold text-[#153D40] text-sm">
+          Privacy & Data Handling Notice
+        </h3>
+        <p>
+          This website operates statically. When you prepare an enquiry through the form above, the structured text is formatted entirely within your browser for copying to your clipboard. No personal data, email addresses, or phone numbers are stored in a database, local storage, or transmitted to any third-party marketing servers.
+        </p>
+        <p>
+          Once our formal corporate email and communication lines are activated, direct digital transmission options will be enabled.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-20 bg-white border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <h2 class="font-serif text-3xl font-bold text-[#153D40] mb-4">
+          Training Enquiry FAQs
+        </h2>
+        <p class="text-sm sm:text-base text-[#667378]">
+          Learn more about how consultations, programme scoping, and scheduling work.
+        </p>
+      </div>
+
+      <FaqAccordion faqs={globalFaqs} idPrefix="contact-faq" />
+    </div>
+  </section>
+
+</Layout>

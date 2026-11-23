@@ -1,0 +1,133 @@
+---
+import { navItems } from '../data/siteContent';
+import { businessConfig } from '../data/businessConfig';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#153D40] text-[#F7F4EE] border-t border-[#1E5155] pt-16 pb-12 mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-[#1E5155]">
+      
+      <!-- Brand column -->
+      <div class="lg:col-span-2 space-y-4">
+        <div>
+          <a href="/" class="inline-block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9916C] rounded">
+            <span class="font-serif text-2xl font-bold tracking-tight text-white group-hover:text-[#F7F4EE]">
+              The English Practice<span class="text-[#C9916C]">.</span>
+            </span>
+          </a>
+          <p class="mt-1 text-sm text-[#E2B596] font-medium tracking-wide">
+            {businessConfig.tagline}
+          </p>
+        </div>
+        <p class="text-sm text-[#D8E2E3] leading-relaxed max-w-sm">
+          {businessConfig.brandDescriptor}. Practical language development tailored for educators, academic institutions, and corporate professionals.
+        </p>
+
+        <div class="pt-2">
+          <div class="inline-flex items-center gap-2 text-xs bg-[#0E292B] px-3 py-1.5 rounded-md border border-[#1E5155] text-[#D8E2E3]">
+            <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+            <span>Led by <strong class="text-white font-medium">{businessConfig.trainerName}</strong></span>
+            <span class="text-[#667378]">·</span>
+            <span class="text-[#E2B596]">{businessConfig.trainerQualification}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Column -->
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-[#E2B596] mb-4">
+          Programmes & Approach
+        </h3>
+        <ul class="space-y-2.5 text-sm">
+          <li>
+            <a href="/english-for-teachers" class="text-[#D8E2E3] hover:text-white transition-colors">
+              English for Educators
+            </a>
+          </li>
+          <li>
+            <a href="/corporate-english" class="text-[#D8E2E3] hover:text-white transition-colors">
+              Corporate English
+            </a>
+          </li>
+          <li>
+            <a href="/our-approach" class="text-[#D8E2E3] hover:text-white transition-colors">
+              Our 4-Step Approach
+            </a>
+          </li>
+          <li>
+            <a href="/about" class="text-[#D8E2E3] hover:text-white transition-colors">
+              About Chriselle Dmello
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="text-[#D8E2E3] hover:text-white transition-colors">
+              Consultation & Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Training Formats Column -->
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-[#E2B596] mb-4">
+          Training Formats
+        </h3>
+        <ul class="space-y-2.5 text-sm text-[#D8E2E3]">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-[#C9916C] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Online Training:</strong> Live, interactive remote sessions</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-[#C9916C] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>One-to-One:</strong> Personalised role-specific focus</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-[#C9916C] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Group Training:</strong> Teams, departments, and faculties</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Consultation / Contact Column -->
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-[#E2B596] mb-4">
+          Enquiries
+        </h3>
+        <p class="text-xs text-[#D8E2E3] leading-relaxed mb-4">
+          Ready to discuss training for your school, corporate team, or personal professional goals?
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center text-sm font-medium text-white bg-[#C9916C] hover:bg-[#B37A55] px-3.5 py-2 rounded-md transition-colors"
+        >
+          <span>Request Consultation</span>
+          <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <p class="text-[11px] text-[#A2B8B9] mt-3">
+          Direct email & phone lines will be published upon formal launch.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom copyright and note -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#A2B8B9]">
+      <p>
+        © {currentYear} The English Practice. All rights reserved.
+      </p>
+      <p class="text-center md:text-right">
+        English for Specific Purposes (ESP) · Educational Consultancy & Professional Training
+      </p>
+    </div>
+  </div>
+</footer>

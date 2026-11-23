@@ -1,0 +1,609 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InteractiveLab from '../components/InteractiveLab.astro';
+import ApproachTimeline from '../components/ApproachTimeline.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { businessConfig } from '../data/businessConfig';
+import { globalFaqs, trainingFormats } from '../data/siteContent';
+
+const homeFaqs = globalFaqs.slice(0, 4);
+---
+
+<Layout
+  title="The English Practice | English for Specific Purposes (ESP)"
+  description="Professional English communication and language development for educators and corporate professionals. Specialist ESP training led by Chriselle Dmello, Master's in English Language Teaching."
+  currentPath="/"
+>
+  
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-[#F7F4EE] via-[#FAF8F5] to-white pt-12 pb-20 lg:pt-16 lg:pb-28 border-b border-[#E2DDD2] overflow-hidden">
+    <!-- Decorative background patterns -->
+    <div class="absolute inset-0 bg-[radial-gradient(#153D40_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left: Copy & CTAs -->
+        <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#153D40]/8 border border-[#153D40]/15 text-[#153D40] text-xs font-semibold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+            <span>English for Specific Purposes</span>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#153D40] font-bold tracking-tight leading-[1.12]">
+            English for the <span class="italic text-[#C9916C] font-normal">work</span> you do<span class="text-[#C9916C]">.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-[#667378] leading-relaxed max-w-2xl">
+            At <strong class="text-[#212A32] font-semibold">The English Practice</strong>, we focus on English communication that matters in real professional settings. From classrooms to corporate workplaces, our training helps educators and professionals develop clarity, confidence and practical communication skills.
+          </p>
+
+          <!-- Formats pill line -->
+          <div class="pt-1 flex flex-wrap items-center gap-2 text-xs font-medium text-[#212A32]">
+            <span class="px-3 py-1 rounded-md bg-white border border-[#E2DDD2] shadow-2xs">Online Training</span>
+            <span class="text-[#C9916C]">✦</span>
+            <span class="px-3 py-1 rounded-md bg-white border border-[#E2DDD2] shadow-2xs">One-to-One Training</span>
+            <span class="text-[#C9916C]">✦</span>
+            <span class="px-3 py-1 rounded-md bg-white border border-[#E2DDD2] shadow-2xs">Group Training</span>
+          </div>
+
+          <!-- CTAs -->
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a
+              href="#programmes"
+              class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm font-semibold text-white bg-[#153D40] hover:bg-[#1E5155] active:bg-[#0E292B] shadow-sm hover:shadow transition-all duration-200"
+            >
+              <span>Explore Our Programmes</span>
+              <svg class="ml-2 w-4 h-4 text-[#E2B596]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm font-semibold text-[#153D40] bg-white hover:bg-[#FAF8F5] border border-[#E2DDD2] hover:border-[#153D40]/30 shadow-2xs transition-all duration-200"
+            >
+              <span>Request a Training Consultation</span>
+            </a>
+          </div>
+
+          <!-- Trainer credential note -->
+          <div class="pt-4 flex items-center gap-3 text-xs text-[#667378] border-t border-[#E2DDD2]/60">
+            <div class="w-8 h-8 rounded-full bg-[#153D40] text-[#F7F4EE] flex items-center justify-center font-serif font-bold text-sm shrink-0">
+              CD
+            </div>
+            <div>
+              <span class="text-[#212A32] font-semibold">{businessConfig.trainerName}</span>
+              <span class="mx-1 text-[#C9916C]">·</span>
+              <span>{businessConfig.trainerQualification}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Asymmetric Visual Composition -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative bg-white rounded-2xl border border-[#E2DDD2] p-6 sm:p-8 shadow-sm space-y-6">
+            
+            <div class="flex items-center justify-between pb-4 border-b border-[#E2DDD2]">
+              <span class="text-xs uppercase tracking-wider font-semibold text-[#153D40]">Targeted Specialisations</span>
+              <span class="text-xs text-[#C9916C] font-mono">ESP Framework</span>
+            </div>
+
+            <!-- Focus 1: Educators Card -->
+            <a href="/english-for-teachers" class="block group p-5 rounded-xl bg-[#FAF8F5] border border-[#E2DDD2] hover:border-[#153D40] transition-all">
+              <div class="flex items-start justify-between">
+                <div>
+                  <span class="inline-block px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-[#153D40]/10 text-[#153D40] mb-2">
+                    For Educators
+                  </span>
+                  <h3 class="font-serif text-lg font-bold text-[#153D40] group-hover:text-[#1E5155] transition-colors">
+                    English for Educators
+                  </h3>
+                  <p class="text-xs text-[#667378] mt-1 leading-relaxed">
+                    Classroom instruction, explaining concepts, student engagement, and parent-teacher communication.
+                  </p>
+                </div>
+                <span class="text-lg text-[#C9916C] group-hover:translate-x-1 transition-transform ml-2">→</span>
+              </div>
+            </a>
+
+            <!-- Focus 2: Corporate Card -->
+            <a href="/corporate-english" class="block group p-5 rounded-xl bg-[#FAF8F5] border border-[#E2DDD2] hover:border-[#153D40] transition-all">
+              <div class="flex items-start justify-between">
+                <div>
+                  <span class="inline-block px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-[#C9916C]/15 text-[#B37A55] mb-2">
+                    For Corporates
+                  </span>
+                  <h3 class="font-serif text-lg font-bold text-[#153D40] group-hover:text-[#1E5155] transition-colors">
+                    Corporate English
+                  </h3>
+                  <p class="text-xs text-[#667378] mt-1 leading-relaxed">
+                    Meetings, high-stakes presentations, business writing, leadership communication, and client discussions.
+                  </p>
+                </div>
+                <span class="text-lg text-[#C9916C] group-hover:translate-x-1 transition-transform ml-2">→</span>
+              </div>
+            </a>
+
+            <!-- Editorial Callout Quote -->
+            <div class="p-4 rounded-xl bg-[#153D40] text-[#F7F4EE] space-y-1">
+              <p class="font-serif text-sm italic leading-snug">
+                "Connecting language learning with the communication situations people encounter in their professional lives."
+              </p>
+              <p class="text-[11px] text-[#E2B596] uppercase tracking-wider font-medium text-right">
+                The English Practice Philosophy
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — PHILOSOPHY -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-6">
+          Not just better English. Better communication where it matters.
+        </h2>
+        <div class="space-y-4 text-base sm:text-lg text-[#667378] leading-relaxed">
+          <p>
+            Professional communication goes beyond vocabulary and grammar. It involves explaining ideas clearly, asking meaningful questions, contributing to conversations, choosing appropriate language, and adapting to different professional situations.
+          </p>
+          <p class="font-medium text-[#212A32]">
+            At The English Practice, learning is connected to the communication skills people use in their everyday work.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 Feature Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Clarity -->
+        <div class="bg-[#FAF8F5] rounded-2xl border border-[#E2DDD2] p-8 hover:border-[#153D40] transition-all hover:shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-[#153D40] text-[#F7F4EE] flex items-center justify-center font-serif text-xl font-bold mb-6">
+            01
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-[#153D40] mb-3">
+            Clarity
+          </h3>
+          <p class="text-sm sm:text-base text-[#667378] leading-relaxed">
+            Learn to express ideas clearly, organise information logically, and communicate with purpose across emails, briefings, and classroom interactions.
+          </p>
+        </div>
+
+        <!-- Card 2: Confidence -->
+        <div class="bg-[#FAF8F5] rounded-2xl border border-[#E2DDD2] p-8 hover:border-[#C9916C] transition-all hover:shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-[#C9916C] text-white flex items-center justify-center font-serif text-xl font-bold mb-6">
+            02
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-[#153D40] mb-3">
+            Confidence
+          </h3>
+          <p class="text-sm sm:text-base text-[#667378] leading-relaxed">
+            Develop greater comfort speaking, presenting, facilitating, and participating actively in professional conversations and meetings.
+          </p>
+        </div>
+
+        <!-- Card 3: Relevance -->
+        <div class="bg-[#FAF8F5] rounded-2xl border border-[#E2DDD2] p-8 hover:border-[#153D40] transition-all hover:shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-[#153D40] text-[#F7F4EE] flex items-center justify-center font-serif text-xl font-bold mb-6">
+            03
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-[#153D40] mb-3">
+            Relevance
+          </h3>
+          <p class="text-sm sm:text-base text-[#667378] leading-relaxed">
+            Practise English through situations that reflect your role, responsibilities, and communication needs, rather than theoretical drills.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3 — TWO SPECIALISED TRAINING AREAS -->
+  <section id="programmes" class="py-20 bg-[#FAF8F5] border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#153D40]/5 border border-[#153D40]/15 text-[#153D40] text-xs font-semibold uppercase tracking-wider mb-4">
+          <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+          Specialised Curricula
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          Purpose-built learning for professionals.
+        </h2>
+        <p class="text-base sm:text-lg text-[#667378]">
+          Different professions demand different communication skills. Explore training designed around the language used in your working environment.
+        </p>
+      </div>
+
+      <!-- 2 Large Premium Service Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- CARD ONE — EDUCATORS -->
+        <div class="bg-white rounded-2xl border border-[#E2DDD2] p-8 sm:p-10 flex flex-col justify-between hover:border-[#153D40] transition-all duration-200 hover:shadow-md">
+          <div class="space-y-6">
+            <div class="flex items-center justify-between">
+              <span class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[#153D40]/10 text-[#153D40]">
+                For Schools & Faculty
+              </span>
+              <span class="text-xs font-mono text-[#667378]">ESP for Education</span>
+            </div>
+
+            <div>
+              <h3 class="font-serif text-3xl font-bold text-[#153D40] mb-2">
+                English for Educators
+              </h3>
+              <p class="font-serif text-lg italic text-[#C9916C]">
+                "Teach with clarity. Connect with confidence."
+              </p>
+            </div>
+
+            <p class="text-sm sm:text-base text-[#667378] leading-relaxed">
+              Practical English communication development for teachers and educators. Focus on classroom interaction, explaining concepts, student engagement, parent–teacher communication and professional confidence.
+            </p>
+
+            <div class="pt-2">
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-3">
+                Key Focus Areas:
+              </h4>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#212A32]">
+                <li class="flex items-center gap-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Classroom communication</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Teaching through English</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Parent & staff interactions</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Professional speaking</span>
+                </li>
+                <li class="flex items-center gap-2 sm:col-span-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Academic communication & reporting</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-8 mt-8 border-t border-[#E2DDD2]">
+            <a
+              href="/english-for-teachers"
+              class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm font-semibold text-white bg-[#153D40] hover:bg-[#1E5155] active:bg-[#0E292B] transition-colors"
+            >
+              <span>Explore Educator Training</span>
+              <svg class="ml-2 w-4 h-4 text-[#E2B596]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD TWO — CORPORATE PROFESSIONALS -->
+        <div class="bg-white rounded-2xl border border-[#E2DDD2] p-8 sm:p-10 flex flex-col justify-between hover:border-[#C9916C] transition-all duration-200 hover:shadow-md">
+          <div class="space-y-6">
+            <div class="flex items-center justify-between">
+              <span class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[#C9916C]/15 text-[#B37A55]">
+                For Corporate Teams & Professionals
+              </span>
+              <span class="text-xs font-mono text-[#667378]">Business ESP</span>
+            </div>
+
+            <div>
+              <h3 class="font-serif text-3xl font-bold text-[#153D40] mb-2">
+                Corporate English
+              </h3>
+              <p class="font-serif text-lg italic text-[#C9916C]">
+                "Communicate clearly. Work confidently."
+              </p>
+            </div>
+
+            <p class="text-sm sm:text-base text-[#667378] leading-relaxed">
+              Role-focused English training for professionals and teams. Develop communication skills for meetings, business writing, presentations, client conversations and everyday professional interactions.
+            </p>
+
+            <div class="pt-2">
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-[#153D40] mb-3">
+                Key Focus Areas:
+              </h4>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#212A32]">
+                <li class="flex items-center gap-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Business communication</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Professional emails</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Meetings and presentations</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Client conversations</span>
+                </li>
+                <li class="flex items-center gap-2 sm:col-span-2">
+                  <span class="text-[#C9916C] font-bold">✓</span>
+                  <span>Leadership & team communication</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-8 mt-8 border-t border-[#E2DDD2]">
+            <a
+              href="/corporate-english"
+              class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm font-semibold text-white bg-[#153D40] hover:bg-[#1E5155] active:bg-[#0E292B] transition-colors"
+            >
+              <span>Explore Corporate Training</span>
+              <svg class="ml-2 w-4 h-4 text-[#E2B596]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4 — WHY ENGLISH FOR SPECIFIC PURPOSES? -->
+  <section class="py-20 bg-white border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          One language. Different professional needs.
+        </h2>
+        <div class="space-y-3 text-base sm:text-lg text-[#667378]">
+          <p>
+            A classroom teacher, project manager, HR professional and business owner may all use English, but their communication responsibilities are different.
+          </p>
+          <p>
+            English for Specific Purposes focuses on the language and communication situations relevant to a learner's professional or academic context.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        
+        <!-- General English -->
+        <div class="rounded-2xl border border-[#E2DDD2] p-8 bg-[#FAF8F5]">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#E2DDD2]">
+            <h3 class="font-serif text-xl font-bold text-[#667378]">
+              General English
+            </h3>
+            <span class="text-xs uppercase font-mono text-[#667378]">Foundational</span>
+          </div>
+          <ul class="space-y-4 text-sm text-[#212A32]">
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#667378] mt-2 shrink-0"></span>
+              <span>Broader language development</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#667378] mt-2 shrink-0"></span>
+              <span>Everyday communication and conversational skills</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#667378] mt-2 shrink-0"></span>
+              <span>General vocabulary and broad language structures</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#667378] mt-2 shrink-0"></span>
+              <span>Wider social and informal conversational contexts</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ESP (English for Specific Purposes) -->
+        <div class="rounded-2xl border-2 border-[#153D40] p-8 bg-white shadow-sm relative">
+          <div class="absolute -top-3.5 right-6 bg-[#153D40] text-white px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+            The English Practice Focus
+          </div>
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#E2DDD2]">
+            <h3 class="font-serif text-xl font-bold text-[#153D40]">
+              English for Specific Purposes
+            </h3>
+            <span class="text-xs uppercase font-mono text-[#C9916C]">Role-Targeted</span>
+          </div>
+          <ul class="space-y-4 text-sm text-[#212A32]">
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-[#C9916C] mt-1.5 shrink-0"></span>
+              <span class="font-medium">Role-relevant communication and vocabulary</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-[#C9916C] mt-1.5 shrink-0"></span>
+              <span class="font-medium">Profession-specific language use and conventions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-[#C9916C] mt-1.5 shrink-0"></span>
+              <span class="font-medium">Realistic workplace or classroom situations</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-[#C9916C] mt-1.5 shrink-0"></span>
+              <span class="font-medium">Purposeful speaking and writing practice</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="text-center text-xs text-[#667378] mt-8 max-w-xl mx-auto">
+        Both approaches are useful and valid, but they serve different learning priorities. The English Practice concentrates on professional and occupational communication.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5 — TRAINING FORMATS -->
+  <section class="py-20 bg-[#FAF8F5] border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          Learning that fits your goals.
+        </h2>
+        <p class="text-base sm:text-lg text-[#667378]">
+          Explore professional English development through flexible learning arrangements designed for individuals and groups.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {trainingFormats.map((fmt) => (
+          <div class="bg-white rounded-2xl border border-[#E2DDD2] p-8 flex flex-col justify-between hover:border-[#C9916C] transition-all hover:shadow-xs">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#153D40]/5 border border-[#153D40]/10 text-[#153D40] flex items-center justify-center font-serif text-lg font-bold mb-6">
+                ✦
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-[#153D40] mb-2">
+                {fmt.title}
+              </h3>
+              <p class="text-xs font-medium text-[#C9916C] mb-4">
+                {fmt.tagline}
+              </p>
+              <p class="text-sm text-[#667378] leading-relaxed mb-6">
+                {fmt.description}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-[#E2DDD2] text-xs text-[#212A32]">
+              <strong class="text-[#153D40] block mb-1">Ideal For:</strong>
+              <p class="text-[#667378]">{fmt.idealFor}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 6 — OUR LEARNING APPROACH -->
+  <section class="py-20 bg-white border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#153D40]/5 border border-[#153D40]/15 text-[#153D40] text-xs font-semibold uppercase tracking-wider mb-4">
+          <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+          Methodology
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          A practical pathway to better communication.
+        </h2>
+        <p class="text-base sm:text-lg text-[#667378]">
+          Our proposed learning approach connects language development with active role practice and actionable feedback.
+        </p>
+      </div>
+
+      <ApproachTimeline showCta={true} />
+
+    </div>
+  </section>
+
+  <!-- SECTION 7 — INTERACTIVE COMMUNICATION LAB -->
+  <InteractiveLab />
+
+  <!-- SECTION 8 — MEET THE TRAINER -->
+  <section class="py-20 bg-[#FAF8F5] border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl border border-[#E2DDD2] p-8 sm:p-12 lg:p-16 max-w-4xl mx-auto shadow-sm">
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Trainer Portrait Placeholder / Monogram Card -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-48 h-56 sm:w-56 sm:h-64 rounded-2xl bg-[#153D40] border-4 border-[#FAF8F5] shadow-md flex flex-col items-center justify-center p-6 text-center text-[#F7F4EE] relative overflow-hidden">
+              <div class="absolute -right-8 -top-8 w-24 h-24 rounded-full border border-white/10 pointer-events-none"></div>
+              <span class="font-serif text-5xl font-bold tracking-tight mb-2 text-[#E2B596]">CD</span>
+              <span class="font-serif text-base font-semibold text-white">{businessConfig.trainerName}</span>
+              <span class="text-[11px] text-[#A2B8B9] uppercase tracking-wider mt-1">{businessConfig.trainerTitle}</span>
+            </div>
+          </div>
+
+          <!-- Biography & Credentials -->
+          <div class="md:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C9916C]/15 text-[#B37A55] text-xs font-semibold uppercase tracking-wider">
+              Academic & Professional Foundation
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#153D40]">
+              Meet {businessConfig.trainerName}
+            </h2>
+
+            <p class="text-sm font-semibold text-[#C9916C]">
+              {businessConfig.trainerQualification}
+            </p>
+
+            <div class="space-y-3 text-sm sm:text-base text-[#667378] leading-relaxed">
+              <p>
+                Chriselle Dmello is the trainer behind The English Practice. With a Master's in English Language Teaching, she brings a specialist academic foundation to her work in English for Specific Purposes.
+              </p>
+              <p>
+                The English Practice focuses on practical language development for educators and working professionals, connecting English learning with the communication situations people encounter in their professional lives.
+              </p>
+            </div>
+
+            <div class="pt-4">
+              <a
+                href="/about"
+                class="inline-flex items-center text-sm font-semibold text-[#153D40] hover:text-[#C9916C] transition-colors"
+              >
+                <span>Learn More About Chriselle & Our Approach</span>
+                <span class="ml-1.5 text-lg">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9 — FAQ PREVIEW -->
+  <section class="py-20 bg-white border-t border-[#E2DDD2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#153D40] font-bold tracking-tight mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-base sm:text-lg text-[#667378]">
+          Common questions regarding our training scope, formats, and English for Specific Purposes.
+        </p>
+      </div>
+
+      <FaqAccordion faqs={homeFaqs} idPrefix="home-faq" />
+
+      <div class="text-center mt-10">
+        <a
+          href="/contact#faq"
+          class="inline-flex items-center text-sm font-semibold text-[#153D40] hover:text-[#C9916C] transition-colors"
+        >
+          <span>View All Frequently Asked Questions</span>
+          <span class="ml-1.5">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 10 — FINAL CTA -->
+  <CtaSection />
+
+</Layout>

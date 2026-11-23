@@ -1,0 +1,81 @@
+---
+import type { FAQItem } from '../data/siteContent';
+
+interface Props {
+  faqs: FAQItem[];
+  idPrefix?: string;
+}
+
+const { faqs, idPrefix = "faq" } = Astro.props;
+---
+
+<div class="space-y-4 max-w-3xl mx-auto" id={`${idPrefix}-accordion`}>
+  {faqs.map((faq, index) => {
+    const itemNumber = index + 1;
+    const buttonId = `${idPrefix}-btn-${itemNumber}`;
+    const panelId = `${idPrefix}-panel-${itemNumber}`;
+
+    return (
+      <div class="border border-[#E2DDD2] rounded-xl bg-white overflow-hidden transition-all duration-200 hover:border-[#C9916C]/60 shadow-2xs">
+        <h3>
+          <button
+            type="button"
+            id={buttonId}
+            aria-expanded="false"
+            aria-controls={panelId}
+            class="faq-toggle w-full flex items-center justify-between p-5 text-left font-serif text-lg font-semibold text-[#153D40] hover:text-[#1E5155] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9916C] gap-4"
+          >
+            <span>{faq.question}</span>
+            <span class="faq-icon-wrapper w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#E2DDD2] flex items-center justify-center shrink-0 transition-transform duration-200">
+              <svg
+                class="faq-icon w-4 h-4 text-[#153D40] transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </button>
+        </h3>
+        <div
+          id={panelId}
+          role="region"
+          aria-labelledby={buttonId}
+          class="faq-panel hidden px-5 pb-5 text-sm sm:text-base text-[#667378] leading-relaxed border-t border-[#E2DDD2]/50 pt-3"
+        >
+          <p>{faq.answer}</p>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+<script>
+  function setupFaqs() {
+    const toggles = document.querySelectorAll('.faq-toggle');
+    toggles.forEach((button) => {
+      // Remove any existing listeners by cloning or simply adding clean handler
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const panelId = button.getAttribute('aria-controls');
+        if (!panelId) return;
+        const panel = document.getElementById(panelId);
+        const icon = button.querySelector('.faq-icon');
+
+        if (isExpanded) {
+          button.setAttribute('aria-expanded', 'false');
+          panel?.classList.add('hidden');
+          icon?.classList.remove('rotate-180');
+        } else {
+          button.setAttribute('aria-expanded', 'true');
+          panel?.classList.remove('hidden');
+          icon?.classList.add('rotate-180');
+        }
+      });
+    });
+  }
+
+  setupFaqs();
+  document.addEventListener('astro:after-swap', setupFaqs);
+</script>

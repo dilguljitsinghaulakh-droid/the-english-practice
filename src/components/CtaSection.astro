@@ -1,0 +1,65 @@
+---
+interface Props {
+  headline?: string;
+  description?: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  headline = "Strong ideas deserve clear communication.",
+  description = "Whether you're developing your professional English or planning communication training for your organisation, begin with a conversation about the skills that matter most.",
+  primaryCtaText = "Request a Training Consultation",
+  primaryCtaHref = "/contact",
+  secondaryCtaText = "Explore Our Programmes",
+  secondaryCtaHref = "/english-for-teachers"
+} = Astro.props;
+---
+
+<section class="py-20 bg-[#153D40] text-white relative overflow-hidden">
+  <!-- Subtle decorative graphic accent -->
+  <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full border border-[#1E5155]/40 pointer-events-none"></div>
+  <div class="absolute -left-20 -top-20 w-80 h-80 rounded-full border border-[#1E5155]/30 pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF8F5]/10 border border-white/20 text-[#E2B596] text-xs font-semibold uppercase tracking-wider mb-6">
+      <span class="w-2 h-2 rounded-full bg-[#C9916C]"></span>
+      Consultation & Needs Assessment
+    </div>
+
+    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 max-w-3xl mx-auto leading-tight">
+      {headline}
+    </h2>
+
+    <p class="text-base sm:text-lg text-[#D8E2E3] max-w-2xl mx-auto mb-10 leading-relaxed">
+      {description}
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href={primaryCtaHref}
+        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-lg text-sm font-semibold text-[#153D40] bg-[#FAF8F5] hover:bg-white active:bg-[#ECE7DC] shadow-md transition-all duration-200"
+      >
+        <span>{primaryCtaText}</span>
+        <svg class="ml-2 w-4 h-4 text-[#C9916C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      {secondaryCtaText && (
+        <a
+          href={secondaryCtaHref}
+          class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-lg text-sm font-semibold text-white border border-[#E2B596]/40 hover:border-white hover:bg-white/5 transition-all duration-200"
+        >
+          <span>{secondaryCtaText}</span>
+        </a>
+      )}
+    </div>
+
+    <p class="text-xs text-[#A2B8B9] mt-8">
+      Online · One-to-One · Group Training for Educators & Corporate Professionals
+    </p>
+  </div>
+</section>
